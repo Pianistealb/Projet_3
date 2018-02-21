@@ -13,8 +13,12 @@ Files: mac_gyver_lab.py, classes.py, constantes.py, L1 + pictures + musics
 import pygame
 from pygame.locals import *
 
+# -tc- De manière générale, on essaie d'éviter la forme from module import *
 from classes import *
 from constantes import *
+
+# -tc- Quant à proposer une conception orientée objet, c'est dommage que le code qui pilote
+# -tc- le tout ne soit pas lui-même dans une classe Application ou Game
 
 pygame.init()
 
