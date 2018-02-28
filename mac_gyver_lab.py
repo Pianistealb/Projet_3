@@ -20,6 +20,7 @@ from C_Labyrinth import *
 from constantes import *
 
 
+
 if __name__ in "__main__":
 	"""this module is loaded in commande line and will load all needed modules."""  
 	pygame.init()
@@ -55,7 +56,7 @@ if __name__ in "__main__":
 
 			for event in pygame.event.get():
 				#if the user leaves, we put the varaibles loop to 0 to browse none and close
-				if event.type in QUIT or event.type in KEYDOWN and event.key in K_ESCAPE:
+				if event.type == QUIT or event.type == KEYDOWN and event.key == K_ESCAPE:
 					continue_home = 0
 					continue_game = 0
 					finish_game = 0
@@ -64,7 +65,7 @@ if __name__ in "__main__":
 					continue_game = 0
 					loop_loose = 0
 
-				elif event.type in KEYDOWN and event.key in K_F1:				
+				elif event.type == KEYDOWN and event.key == K_F1:				
 					#Labyrinth launch
 					continue_home = 0	#quitt home
 					continue_game = 'L1'		#Labyrinth launch
@@ -105,7 +106,7 @@ if __name__ in "__main__":
 			
 				#If the player quitt, we put the variable for to continue game
 				#And the principal variable at 0 for close the window
-				if event.type in QUIT:
+				if event.type == QUIT:
 					continue_game = 0
 					keep = 0
 					finish_game = 0
@@ -170,14 +171,14 @@ if __name__ in "__main__":
 					pygame.time.Clock().tick(30)
 					for event in pygame.event.get():
 						#if the user leaves, we put the varaibles loop to 0 to browse none and close
-						if event.type in QUIT or event.type in KEYDOWN and event.key in K_ESCAPE:
+						if event.type == QUIT or event.type == KEYDOWN and event.key == K_ESCAPE:
 							continue_home = 0
 							continue_game = 0
 							continue_finish = 0
 							keep = 0
 							continue_game = 0
 							finish_game =0
-						elif event.type in KEYDOWN and event.key in K_RETURN:				
+						elif event.type == KEYDOWN and event.key == K_RETURN:				
 							#Menu home launch
 							continue_home = 1
 							continue_game = 0
@@ -207,7 +208,7 @@ if __name__ in "__main__":
 					pygame.time.Clock().tick(30)
 					for event in pygame.event.get():
 						#if the user press escape, we put the variables loop_loose to 0 and get back to the starting menu.
-						if  event.type in KEYDOWN and event.key in K_ESCAPE:
+						if  event.type == KEYDOWN and event.key == K_ESCAPE:
 							continue_home = 1
 							continue_game = 0
 							continue_finish = 0
