@@ -7,6 +7,8 @@ Amandine Le Bras
 import pygame
 from pygame.locals import *
 
+# -tc- from objects import Object (ici, renommer C_Object.py en objects.py et rendre l'import explicite)
+# -tc- from labyrinth import Labyrinth
 from constantes import *
 from C_Object import *
 from C_Labyrinth import *

@@ -6,6 +6,8 @@ Amandine Le Bras
 import pygame
 from pygame.locals import *
 
+# -tc- from objects import Object (ici, renommer C_Object.py en objects.py et rendre l'import explicite)
+# -tc-from character import Character (ici renommer C_Character.py en character.py)
 from constantes import *
 from C_Object import *
 from C_Character import *
