@@ -14,12 +14,19 @@ C_Labyrinth.py, constantes.py, L1 + pictures + musics
 import pygame
 from pygame.locals import *
 
+# -tc- On n'utilise que des minuscules dans les noms de modules et on évite
+# -tc- au maximum les import *. Cela pourrait donnés en modifiant juste le
+# -tc- nom des fichiers et les imports (sans impact sur le code):
+#
+# -tc- from objects import Object (ici, renommer C_Object.py en objects.py et rendre l'import explicite)
+# -tc-from character import Character (ici renommer C_Character.py en character.py)
+# -tc- from labyrinth import Labyrinth
 from C_Object import *
 from C_Character import *
 from C_Labyrinth import *
 from constantes import *
 
-
+# -tc- dans tes commentaires, fait attention de laisser un espace entre le # et le premier caractère
 
 if __name__ in "__main__":
 	"""this module is loaded in commande line and will load all needed modules."""  
@@ -46,7 +53,7 @@ if __name__ in "__main__":
 		#These variables are reset to 1 at each loop turn
 		continue_game = 1
 		continue_home = 1
-		finish_game = 1
+		finish_game = 1 
 		loop_loose = 1
 
 		#Loop home
@@ -56,7 +63,8 @@ if __name__ in "__main__":
 
 			for event in pygame.event.get():
 				#if the user leaves, we put the varaibles loop to 0 to browse none and close
-				if event.type == QUIT or event.type == KEYDOWN and event.key == K_ESCAPE:
+                # -tc- J'utiliserais des parenthèses pour clarifier
+				if event.type == QUIT or (event.type == KEYDOWN and event.key == K_ESCAPE):
 					continue_home = 0
 					continue_game = 0
 					finish_game = 0
@@ -92,15 +100,21 @@ if __name__ in "__main__":
 			object3 = Object(PICTURE_PLASTIC_TUBE, labyrinth)
 
 			#display objects in labyrinth
+            # -tc- Du coup, avec ma proposition dans la classe Object, cela donnerait:
+            # -tc- object1.position(window, 'o1')
+            # -tc- object2.position(window, 'o2')
+            # -tc- object3.position(window, 'o3')
 			object1.position1(window)
 			object2.position2(window)
 			object3.position3(window)
+
+            
 
 		#Loop game
 		while continue_game:
 		
 			#limitation speed for loop
-			pygame.time.Clock().tick(30)
+			pygame.time.Clock().tick(30) # -tc- déjà fait plus haut
 		
 			for event in pygame.event.get():
 			
@@ -148,6 +162,8 @@ if __name__ in "__main__":
 
 		#Loop finish
 		while finish_game:
+            # -tc- le if est-il nécessaire? En effet, si on est dans la boucle, c'est que finish_game
+            # -tc- n'est pas égal à 0
 			if finish_game != 0:	
 				#loading and display from the finish screen
 				finish = pygame.image.load(PICTURE_WIN).convert_alpha()
@@ -188,6 +204,8 @@ if __name__ in "__main__":
 
 		#Loop game over
 		while loop_loose:
+            # -tc- Le if n'est pas nécessaire. Si on est dans la boucle, c'est
+            # -tc- loop_loose est non nul.
 			if loop_loose != 0:				
 				#loading and display from the finish screen
 				finish = pygame.image.load(PICTURE_DEAD).convert_alpha()
