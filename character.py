@@ -39,8 +39,7 @@ class Character:
             # Not to exceed the screen
             if self.case_x < (c.NUMBER_SPITE_COT - 1):
                 # We check that the destination box is not a wall
-                if self.labyrinth.structure([self.case_y][self.case_x+1]
-                                            not in {'m', 'g'}):
+                if self.labyrinth.structure[self.case_y][self.case_x+1]not in {'m', 'g'}:
                     # Moving a case
                     self.case_x += 1
                     # Calculation of the "real" position in pixels
